@@ -1,0 +1,103 @@
+{
+  "info": {
+    "_postman_id": "2ebdaa88-154d-470e-9ae5-65142167f941",
+    "name": "Attendance Tracker",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "28977611"
+  },
+  "item": [
+    {
+      "name": "All students",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/students",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "students"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Student by id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/students/11",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "students",
+            "11"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "add student",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"rollNo\": 24,\r\n    \"name\": \"Mack Shimla\",\r\n    \"className\": \"FY-BCA\",\r\n    \"division\": \"A\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/api/students/add",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "students",
+            "add"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Student",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/students/delete/5",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "students",
+            "delete",
+            "5"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
