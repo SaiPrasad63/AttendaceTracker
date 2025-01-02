@@ -1,9 +1,6 @@
+CREATE DATABASE attendance_system;
+
 use attendance_system;
-
-drop table students;
-
-drop table attendance;
-
 
 CREATE TABLE students (
     roll_no INT PRIMARY KEY, -- Unique roll number for each student
