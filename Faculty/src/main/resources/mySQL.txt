@@ -1,0 +1,37 @@
+use attendance_system;
+
+drop table students;
+
+drop table attendance;
+
+
+CREATE TABLE students (
+    roll_no INT PRIMARY KEY, -- Unique roll number for each student
+    name VARCHAR(100) NOT NULL, -- Student's name
+    class VARCHAR(20) NOT NULL, -- Class of the student
+    division VARCHAR(5) NOT NULL -- Division of the student
+);
+
+CREATE TABLE attendance (
+    id INT AUTO_INCREMENT PRIMARY KEY, -- Unique ID for each attendance record
+    roll_no INT NOT NULL, -- References the roll number from the students table
+    status ENUM('Present', 'Absent') NOT NULL, -- Attendance status
+    date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, -- Date and time of attendance
+    FOREIGN KEY (roll_no) REFERENCES students(roll_no) ON DELETE CASCADE -- Cascade delete on roll_no
+);
+
+
+INSERT INTO students (roll_no, name, class, division)
+VALUES
+(1, 'Shruti Done', 'FY-BCA', 'A'),
+(2, 'Siddhi Ganbavale', 'FY-BCA', 'A'),
+(3, 'Akansha Chile', 'FY-BCA', 'A'),
+(4, 'Srushti Hujare', 'FY-BCA', 'A'),
+(5, 'Raj Patil', 'FY-BCA', 'A'),
+(6, 'Jay Patel', 'FY-BCA', 'A'),
+(7, 'Sai Patil', 'FY-BCA', 'A'),
+(8, 'Ram Sutar', 'FY-BCA', 'A'),
+(9, 'Laksham More', 'FY-BCA', 'A'),
+(10, 'Satish Kumbhar', 'FY-BCA', 'A');
+
+SELECT * FROM students;
