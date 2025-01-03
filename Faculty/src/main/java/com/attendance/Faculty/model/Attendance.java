@@ -1,17 +1,10 @@
 package com.attendance.Faculty.model;
 
-import lombok.Data;
-
-import java.time.LocalDateTime;
-
-
-@Data
 public class Attendance {
-    private Student student;
     private int id;
-    private int studentId;
-    private String status;
-    private LocalDateTime date;
+    private int rollNo;
+    private Status status;
+    private String date;
 
     // Getters and Setters
     public int getId() {
@@ -22,35 +15,27 @@ public class Attendance {
         this.id = id;
     }
 
-    public int getStudentId() {
-        return studentId;
+    public int getRollNo() {
+        return rollNo;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+    public void setRollNo(int rollNo) {
+        this.rollNo = rollNo;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
-    public LocalDateTime getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(String date) {
         this.date = date;
-    }
-
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
     }
 }

@@ -172,7 +172,22 @@ public class StudentRepository {
         }
         return false;
     }
+    public boolean isRollNoNotExists(int rollNo) {
+        String query = "SELECT COUNT(*) AS count FROM students WHERE roll_no = ?";
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
+            preparedStatement.setInt(1, rollNo);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt("count") > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Error checking roll number existence", e);
+        }
+        return false;
+    }
     public boolean addStudent(Student student) {
         String query = "INSERT INTO students (roll_no, name, class, division) VALUES (?, ?, ?, ?)";
         try (Connection connection = dataSource.getConnection();
