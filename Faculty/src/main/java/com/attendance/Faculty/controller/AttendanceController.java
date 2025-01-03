@@ -16,10 +16,8 @@ public class AttendanceController {
     private AttendanceService attendanceService;
 
     @PostMapping("/mark")
-    public ResponseEntity<String> markAttendance(@RequestBody int studentId, String status) {
-        System.out.println("Received studentId: " + studentId);
-        System.out.println("Received status: " + status);
-        attendanceService.markAttendance(studentId,status);
+    public ResponseEntity<String> markAttendance(@RequestBody Attendance attendance) {
+        attendanceService.markAttendance(attendance.getRollNo(), attendance.getStatus().name());
         return ResponseEntity.ok("Attendance marked successfully.");
     }
 
